@@ -40,6 +40,14 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=admin
     depends_on:
       - postgres
+  simulator:
+    build:
+      context: .  # Build context is root, since the simulator folder is here
+      dockerfile: simulator/Dockerfile  # Path to the Dockerfile in the simulator folder
+    depends_on:
+      - fastapi
+    environment:
+    - API_URL=http://fastapi:8000/ingest
 
 volumes:
   postgres-data:
