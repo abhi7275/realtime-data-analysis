@@ -10,7 +10,7 @@ services:
     depends_on:
       - postgres
     environment:
-      - DATABASE_URL=postgres://admin:adminpassword@postgres/realtime_data_analysis
+      - DATABASE_URL=postgresql://admin:adminpassword@postgres:5432/realtime_data_analysis
 
   redis:
     build:
